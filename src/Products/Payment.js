@@ -9,7 +9,7 @@ import { jsPDF } from 'jspdf';
 import autoTable from "jspdf-autotable";
 import "./font/THSarabunNew-normal.js";
 
-function Payment({ total, selected }) {
+function Payment({ total, selected, onClose, onSuccess }) {
     const [product, setProduct] = useState(selected || []);
     const [paymentMethod, setPaymentMethod] = useState(false);
     const [cashMethod, setCashMethod] = useState(false);
@@ -123,7 +123,7 @@ function Payment({ total, selected }) {
         setHead("ชำระเงิน")
     }
 
-    const handleMoney = () => {
+    const handleMoney = async () => {
         if (money >= total) {
             const newBillNo = generateBillNo();
             setBillNo(newBillNo);
@@ -154,6 +154,7 @@ function Payment({ total, selected }) {
             printToLinux(updatedProducts, newBillNo, total, money);
             // setIsOpen1(false);
             // ใส่ฟังก์ชันบันทึกการชำระเงินตรงนี้
+            if (onSuccess) onSuccess();
         } else {
             Swal.fire({
                 title: "จำนวนเงินไม่พอ",
@@ -191,6 +192,7 @@ function Payment({ total, selected }) {
         ReportBill(newBillNo);
         generatePDF(updatedProducts, newBillNo, shopaddress);
         printToLinux(updatedProducts, newBillNo, total, total);
+        if (onSuccess) onSuccess();
     }
 
     const [billNo, setBillNo] = useState("");

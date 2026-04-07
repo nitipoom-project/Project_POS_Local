@@ -187,6 +187,18 @@ function Product() {
         barcodeRef.current?.focus();
     }, []);
 
+    const handlePaymentSuccess = () => {
+    // เคลียร์ตะกร้าและยอดเงิน
+    setSelected([]);
+    setTotal(0);
+    setTotalPrice(0);
+    // ปิด Modal
+    setIsOpen(false); 
+    
+    // (เพิ่มเติม) คุณอาจจะ fetchProducts ใหม่เพื่ออัปเดตสต็อกหน้าเว็บ
+    // fetchProducts(); 
+};
+
 
     return (
         // <div className="flex w-full mx-auto p-0 gap-5 mt-8 rounded-lg">
@@ -402,7 +414,7 @@ function Product() {
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-50 border-black-500 flex justify-center items-center rounded-lg"
                     style={{ backdropFilter: 'blur(5px)', borderColor: 'black' }}> {/* Changed background opacity */}
                     <div className="bg-white p-6 rounded-[60px] w-[800px] text-center shadow-lg relative">
-                        <Payment total={total} selected={[selected]} user_id={selected.user_id} onClose={handleClosePopup} />
+                        <Payment total={total} selected={[selected]} user_id={selected.user_id} onClose={handleClosePopup} onSuccess={handlePaymentSuccess}/>
                         {/* <p className='mt-8'>****** ราคารวม : {total} ******</p> */}
                         <button
                             onClick={handleClosePopup}
