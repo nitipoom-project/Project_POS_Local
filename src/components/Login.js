@@ -43,7 +43,7 @@ function Login() {
                         alt="login"
                         className="w-16 mb-3 opacity-85"
                     />
-                    <h2 className="text-2xl font-bold text-blue-700 mb-2 tracking-wide">เข้าสู่ระบบ</h2>
+                    <h2 className="text-2xl font-bold text-blue-700 mb-2 tracking-wide">xx เข้าสู่ระบบ xx</h2>
                     <p className="text-gray-500 mb-4 text-base">กรุณากรอกชื่อผู้ใช้และรหัสผ่าน</p>
                 </div>
                 <form onSubmit={handleSubmit} className="space-y-5">
