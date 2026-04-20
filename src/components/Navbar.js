@@ -16,7 +16,7 @@ function Navbar() {
     <nav className="fixed top-0 left-0 h-screen w-56 bg-blue-700 text-white flex flex-col items-start py-8 px-0 shadow-lg z-20">
       {/* ส่วนหัวของ Navbar เช่น ชื่อแอปพลิเคชัน */}
       <div className="text-xl font-bold px-8 mb-6">
-        STOCK APP
+        ร้านค้า
       </div>
 
       {/* ส่วนเมนูหลัก */}
@@ -54,12 +54,7 @@ function Navbar() {
                 }`}
             >
               <FaCog /> 
-              {/* ไอคอนสำหรับเมนู SETTING */}
               SETTING
-              {/* <select className="flex items-center gap-4 w-full py-3 px-8 rounded-r-2xl font-semibold transition">
-                <option value="en">EN</option>
-                <option value="th">TH</option>
-              </select> */}
             </Link>
           </>
 /*----------------------------------------------------------------------*/

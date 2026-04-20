@@ -223,35 +223,6 @@ function Payment({ total, selected, onClose, onSuccess }) {
         }
     }, [selected]);
 
-    // useEffect(() => {
-    //     if (selected && selected.length > 0) {
-    //         setProduct(selected);
-    //     }
-    // }, [selected]);
-
-
-    // const BillItem = async () => {
-    //     // const newBillNo = generateBillNo();
-    //     const billItem = {
-    //         billNo: billNo,
-    //         user_id: product[0][0]?.user_id || null,
-    //         products: product[0].map(item => ({
-    //             product_id: item.product_id,
-    //             quantity: item.quantity
-    //         }))
-    //     };
-
-    //     console.log("ส่ง billItem:", billItem);
-
-    //     try {
-    //         const response = await axios.post('http://localhost:5000/api/addbillitem', billItem);
-    //         console.log('บันทึกข้อมูลบิลลงใน Bill Item สำเร็จ:', response.data);
-    //     } catch (error) {
-    //         // console.error(error);
-    //         alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล billItem: ' + error.message);
-    //     }
-    // };
-
     const BillItem = async (newBillNo) => {
         if (!newBillNo) {
             console.error("❌ ไม่มี billNo- BillItem");
@@ -320,71 +291,6 @@ function Payment({ total, selected, onClose, onSuccess }) {
             alert('เกิดข้อผิดพลาดในการบันทึกข้อมูล ReportBill: ' + error.message);
         }
     }
-    //----------------------------------------------------------------------------------------------------------------
-    // const generatePDF = (data, billNo, Shop) => {
-    //     const doc = new jsPDF({
-    //         orientation: "p",   // "p" = portrait (แนวตั้ง), "l" = landscape (แนวนอน)
-    //         unit: "mm",         // หน่วย: mm, cm, in, px, pt
-    //         format: "a4"        // หรือจะใส่ [210, 297] ก็ได้
-    //     });
-
-    //     doc.setFontSize(18);
-    //     doc.setFont("THSarabunNew", "normal");
-
-    //     // Header ร้านค้า
-    //     doc.setFontSize(24);
-    //     doc.text(`${shopaddress[0].shop_name}`, 105, 20, { align: "center" });
-    //     doc.setFontSize(12);
-    //     doc.text(`${shopaddress[0].shop_address}`, 105, 28, { align: "center" });
-    //     doc.text(`โทร: ${shopaddress[0].shop_tel}`, 105, 34, { align: "center" });
-
-    //     // ข้อมูลบิล
-    //     doc.setFontSize(14);
-    //     doc.text(`เลขที่บิล: ${billNo}`, 14, 50);
-    //     doc.text(`วันที่: ${dateTime.toLocaleDateString("th-TH")} เวลา: ${dateTime.toLocaleTimeString("th-TH")}`, 14, 58);
-    //     doc.text(`ชื่อลูกค้า:           `, 14, 66);
-    //     const method = paymentMethod ? "PromptPay" : "เงินสด";
-    //     doc.text(`ชำระแบบ: ${method}`, 160, 66);
-
-    //     // doc.setFontSize(16);
-    //     doc.text(`ลำดับ                                สินค้า                                 จำนวน                               ราคา                       รวม`, 15, 78);
-    //     // ตารางสินค้า
-    //     autoTable(doc, {
-    //         startY: 80,
-    //         // head: [["ลำดับ", "สินค้า", "จำนวน", "ราคา", "รวม"]],
-    //         body: [
-    //             ...data.map((item, index) => [
-    //                 index + 1,
-    //                 item.product_name,
-    //                 "x" + item.quantity,
-    //                 Number(item.product_price).toLocaleString('en-US', { minimumFractionDigits: 2 }),
-    //                 Number(item.quantity * item.product_price).toLocaleString('en-US', { minimumFractionDigits: 2 })
-    //             ])
-    //         ],
-    //         styles: { font: "THSarabunNew", fontSize: 12, halign: "center" },
-    //         headStyles: { fillColor: [41, 128, 185] },
-    //         columnStyles: {
-    //             0: { halign: "left" },
-    //             1: { halign: "left" },
-    //             2: { halign: "right" },
-    //             3: { halign: "right" }
-    //         }
-    //     });
-
-    //     const finalY = doc.lastAutoTable.finalY || 100;
-    //     const cash = money - total;
-    //     doc.setFontSize(14);
-    //     doc.text(`ยอดรวมสุทธิ: ${(Number(total) || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท`, 195, finalY + 10, { align: "right" });
-    //     doc.text(`รับ: ${(Number(money) || 0).toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท`, 195, finalY + 20, { align: "right" });
-    //     doc.text(`เงินทอน: ${(method === "PromptPay" ? 0 : (Number(cash) || 0)).toLocaleString('en-US', { minimumFractionDigits: 2 })} บาท`, 195, finalY + 30, { align: "right" });
-
-
-    //     // Footer
-    //     doc.setFontSize(12);
-    //     doc.text("ขอบคุณที่ใช้บริการ", 105, finalY + 40, { align: "center" });
-
-    //     doc.save(`${billNo}.pdf`);
-    //-------
     const generatePDF = (
         data,
         billNo,
@@ -586,16 +492,9 @@ function Payment({ total, selected, onClose, onSuccess }) {
                 </div>
             )}
 
-            {/* {promptpays === false && (
-                <div className='mt-8 text-center'>
-                    <h2 className='text-xl font-bold mb-4'>ขออภัย ไม่มีวิธีชำระเงินในขณะนี้</h2>
-                </div>
-            )} */}
-
             {paymentMethod === true && (
                 <div className="mt-8 text-center">
                     <h2 className="text-xl font-bold mb-4">สแกนเพื่อชำระเงิน</h2>
-                    {/* ตรงนี้คุณใส่ QR Code หรือรายละเอียดการจ่าย */}
                     <img src={qrImage} alt="QR Code" className="mx-auto w-64 h-64" />
                     <div className='flex justify-center items-center'>
                         <img src={logo} alt="PromptPay Logo" className="mx-auto mt-4"

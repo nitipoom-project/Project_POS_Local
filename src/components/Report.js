@@ -36,43 +36,6 @@ function Report() {
         fetchProducts();
     }, []);
 
-    // useEffect(() => {
-    //     const fetchTotalsales = async () => {
-    //         try {
-    //             const response = await axios.get('http://localhost:3001/api/total_sales');
-    //             // console.log("👉 total_sales response:", response.data);
-    //             setTotalsales(response.data.data || []);
-    //         } catch (error) {
-    //             setTotalsales([]);
-    //             // console.error('Error fetching total sales:', error);
-    //         }
-    //     };
-    //     fetchTotalsales();
-    // }, []);
-
-    // useEffect(() => {
-    //     const fetchBill = async () => {
-    //         try {
-    //             const response = await axios.get('http://localhost:3001/api/report');
-    //             setBill(response.data.data || []);
-    //         } catch (error) {
-    //             setBill([]);
-    //         }
-    //     };
-    //     fetchBill();
-    // }, []);
-
-    // useEffect(() => {
-    //     const fetchProfit = async () => {
-    //         try {
-    //             const response = await axios.get('http://localhost:3001/api/profit');
-    //             setProfit(response.data.profit || 0);
-    //         } catch (error) {
-    //             setProfit(0);
-    //         }
-    //     };
-    //     fetchProfit();
-    // }, []);
 
     useEffect(() => {
     const fetchMonthly = async () => {

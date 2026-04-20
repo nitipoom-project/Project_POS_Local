@@ -21,53 +21,6 @@ function Managepayment() {
         // console.log(cash);
     }, [statusCash]);
 
-    // useEffect(() => {
-    //     const fetchPaymentStatus = async () => {
-    //         try {
-    //             const response = await fetch('http://localhost:3001/api/getpromptpay');
-    //             const data = await response.json();
-    //             setStatusPmt(data);
-
-    //             if(data === 1) {
-    //                 setPromptpay(true);
-    //             } else {
-    //                 setPromptpay(false);
-    //             }
-
-    //         } catch (error) {
-    //             console.error('Error fetching promptpay status:', error);
-    //             setError('ไม่สามารถโหลดสถานะการชำระเงินได้');
-    //         } finally {
-    //             setLoading(false);
-    //             console.log('Finished fetching promptpay status');
-    //         }
-    //     };
-    //     fetchPaymentStatus();
-    // }, []);
-    // useEffect(() => {
-    //     const fetchPaymentStatus = async () => {
-    //         try {
-    //             const response = await fetch('http://localhost:3001/api/getcash');
-    //             const data = await response.json();
-    //             setStatusCash(data);
-
-    //             if(data === 1) {
-    //                 setCash(true);
-    //             } else {
-    //                 setCash(false);
-    //             }
-
-    //         } catch (error) {
-    //             console.error('Error fetching cash status:', error);
-    //             setError('ไม่สามารถโหลดสถานะการชำระเงินได้');
-    //         } finally {
-    //             setLoading(false);
-    //             console.log('Finished fetching cash status');
-    //         }
-    //     };
-    //     fetchPaymentStatus();
-    // }, []);
-
     useEffect(() => {
     const fetchPaymentStatus = async () => {
         try {

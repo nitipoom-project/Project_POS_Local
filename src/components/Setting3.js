@@ -19,16 +19,6 @@ function Setting3() {
       </h2>
       <h2 className="text-2xl font-bold text-gray-800 flex items-center justify-center mb-6">
       </h2>
-      {/* <h3 className="text-2xl font-bold text-gray-800 flex">
-        <div className='flex items-center text-2xl'> */}
-          {/* <MdManageAccounts /> */}
-          {/* <FcPortraitMode /> */}
-        {/* </div>
-        &nbsp;&nbsp;
-        <div>Manageuser</div>
-      </h3> */}
-      {/* <Adduser /> */}
-      {/* <div className='mt-8' style={{ width: '100%' }}><Showusers /></div> */}
       <div className='mt-8' style={{ width: '100%' }}><Managepayment /></div>
     </div>
   );

@@ -16,7 +16,7 @@ function Navbar2() {
         <nav className="fixed top-0 left-0 h-screen w-56 bg-blue-700 text-white flex flex-col items-start py-8 px-0 shadow-lg z-20">
             {/* ส่วนหัวของ Navbar เช่น ชื่อแอปพลิเคชัน */}
             <div className="text-xl font-bold px-8 mb-6">
-                STOCK APP
+                STORE
             </div>
 
             {/* ส่วนเมนูหลัก */}

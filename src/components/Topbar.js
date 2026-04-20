@@ -17,7 +17,7 @@ export default function Topbar({
 }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [users, setUsers] = useState([]);
-  const Fname = localStorage.getItem('userFirstName');
+  // const Fname = localStorage.getItem('user_fn') || 'User';
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -39,14 +39,6 @@ export default function Topbar({
     <header className="fixed top-0 z-50 w-full bg-blue-600 text-white shadow-lg">
       <div className="mx-auto flex h-[80px] max-w-screen-xl items-center gap-4 px-6">
 
-        {/* Left icon / menu */}
-        {/* <button
-          aria-label="Open menu"
-          onClick={toggleMenu}
-          className="inline-flex items-center justify-center rounded-2xl p-3 hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white/60"
-        >
-          {/* <Menu className="h-6 w-6" /> */}
-        {/* </button> */}
 
         <img src={logo} alt="Logo" style={{ height: '40px', width: '40px' }} />
 
@@ -57,20 +49,9 @@ export default function Topbar({
           </span>
         </div>
 
-        {/* Optional: search (can remove if not needed) */}
-        {/* <div className="hidden items-center gap-2 sm:flex">
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 opacity-80" />
-            <input
-              type="text"
-              placeholder="ค้นหา..."
-              className="h-10 w-48 rounded-2xl bg-white/15 pl-10 pr-3 text-white placeholder-white/80 outline-none ring-1 ring-white/20 focus:bg-white/20 focus:ring-white/40 md:w-64"
-            />
-          </div>
-        </div> */}
 
         <div className="hidden items-center gap-2 sm:flex ">
-          <p>Welcome, {Fname}</p>
+          <p>Welcome, {users[0]?.user_fn || "User"}</p>
         </div>
 
         {/* Right area (notifications or custom content) */}

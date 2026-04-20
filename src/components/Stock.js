@@ -260,32 +260,6 @@ function Stock() {
                                                     fetchProducts();
                                                 }
                                             });
-
-                                            // Swal.fire({
-                                            //     title: "Are you sure?",
-                                            //     text: "You won't be able to revert this!",
-                                            //     icon: "warning",
-                                            //     showCancelButton: true,
-                                            //     confirmButtonColor: "#3085d6",
-                                            //     cancelButtonColor: "#d33",
-                                            //     confirmButtonText: "Yes, delete it!"
-                                            // }).then((result) => {
-                                            //     if (result.isConfirmed) {
-                                            //         Swal.fire({
-                                            //             title: "Deleted!",
-                                            //             text: "Your file has been deleted.",
-                                            //             icon: "success"
-                                            //         });
-                                            //     }
-                                            // });
-                                            // if (window.confirm('คุณต้องการลบสินค้านี้หรือไม่?')) {
-                                            //     try {
-                                            //         await axios.delete(`http://localhost:3001/api/deleteproduct_product/${product.product_id}`);
-                                            //         await fetchProducts(); // ✅ อัปเดตข้อมูลใหม่
-                                            //     } catch (error) {
-                                            //         console.error('Error deleting product:', error);
-                                            //     }
-                                            // }
                                         }}
                                     >
                                         <IoTrashSharp className='text-xl' />{/* Delete */}

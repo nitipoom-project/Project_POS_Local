@@ -27,15 +27,6 @@ function Input() {
     };
 
     const handleSubmit = async (e) => {
-        // const userID = localStorage.getItem('userID');
-        // e.preventDefault();
-        // const formData = new FormData();
-        // for (const key in form) {
-        //     formData.append(key, form[key]);
-        // }
-        // // formData.append('userID', userID);
-        // console.log([...formData.entries()]);
-        // await fetchProducts(formData);
         e.preventDefault();
 
         // 1. แทนที่จะใช้ new FormData() ให้ใช้ตัวแปร form ที่เป็น Object ตรงๆ เลย
@@ -44,36 +35,8 @@ function Input() {
         // 2. ส่ง form เข้าไปใน fetchProducts
         await fetchProducts(form);
     };
-
-    // const fetchProducts = useCallback(async (e) => {
-    //     console.log('Submitting product data:', e);
-    //     try {
-    //         await axios.post('https://projectposserver-production.up.railway.app/api/addproducts', e, {
-    //             headers: { 'Content-Type': 'multipart/form-data' },
-    //         });
-    //         // alert('บันทึกข้อมูลสินค้าสำเร็จ');
-    //         Swal.fire({
-    //             title: "บันทึกข้อมูลสำเร็จ",
-    //             icon: "success",
-    //             showCancelButton: false,
-    //             timer: 1500,
-    //             draggable: true
-    //         });
-    //     } catch (error) {
-    //         // alert('เกิดข้อผิดพลาด: ' + error.message);
-    //         Swal.fire({
-    //             title: 'เกิดข้อผิดพลาด: ' + error.message,
-    //             icon: "error",
-    //             showCancelButton: false,
-    //             timer: 1500,
-    //             draggable: true
-    //         });
-    //     }
-    // }, []);
     const fetchProducts = useCallback(async (productData) => {
         try {
-            // ไม่ต้องระบุ headers: 'multipart/form-data' แล้ว 
-            // Axios จะจัดการเป็น application/json ให้เองเมื่อส่ง Object
             await axios.post('https://projectposserver-production.up.railway.app/api/addproducts', productData);
 
             Swal.fire({

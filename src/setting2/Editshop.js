@@ -34,12 +34,6 @@ function Editshop({ shopID,onClose }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // ตรวจสอบเบอร์โทร        if (!/^[0-9]{10}$/.test(shopTel)) {
-        // if (!/^[0-9]{10}$/.test(shopTel)) {
-        //     alert('กรุณากรอกเบอร์โทรให้ถูกต้อง 10 หลัก');
-        //     return;
-        // }
         const updatedData = {
             shop_name: shopName,
             shop_address: shopAddress,
